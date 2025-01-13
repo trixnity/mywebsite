@@ -1,0 +1,466 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: url('assets/background\ web.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f5f5f5; /* Light text color */
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* Header and Navbar */
+header {
+    background-color: #1f1f1f;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for the search bar in the nav */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Push search bar to the right */
+}
+
+.search-container input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-container button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #00ffcc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 14px;
+}
+
+.search-container button:hover {
+    background-color: #008f99;
+    color: white;
+}
+
+/* Coaches List Section */
+.coaches-list {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.coaches-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to the next row */
+    gap: 20px; /* Adds spacing between cards */
+    justify-content: center; /* Center-aligns the cards */
+    margin-top: 20px;
+}
+
+.coach-card {
+    background-color: #333; /* Background color for the card */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 33%; /* Ensures 3 cards per row (100% divided by 3) */
+    min-width: 200px; /* Prevents cards from shrinking too much on smaller screens */
+    max-width: 300px; /* Prevents cards from growing too large */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for better visual effect */
+}
+
+.coach-img {
+    width: 90px; /* Size of the coach image */
+    height: 90px; /* Makes the image square */
+    border-radius: 50%; /* Makes the image circular */
+    margin-bottom: 10px;
+}
+
+.coach-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.coach-card p {
+    font-size: 14px;
+}
+
+/* For tablets, 2 cards per row */
+@media (max-width: 768px) {
+    .coach-card {
+        width: 45%; /* Adjust width for 2 cards per row */
+    }
+}
+
+/* For mobile devices, 1 card per row */
+@media (max-width: 480px) {
+    .coach-card {
+        width: 90%; /* Adjust width for 1 card per row */
+    }
+}
+
+
+/* Dashboard Table Styles */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 16px;
+    text-align: left;
+    background-color: #333;
+    color: white;
+}
+
+.dashboard-table th, .dashboard-table td {
+    border: 1px solid #444;
+    padding: 10px;
+}
+
+.dashboard-table th {
+    background-color: #444;
+    color: white;
+    text-align: center;
+}
+
+.dashboard-table tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+
+.dashboard-table tr:nth-child(odd) {
+    background-color: #2a2a2a;
+}
+
+.dashboard-table tr:hover {
+    background-color: #555;
+}
+
+.dashboard-table td a {
+    color: #4ca3ff;
+    text-decoration: none;
+}
+
+.dashboard-table td a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+.ad-banner {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #333, #1f1f1f);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+.features img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/*div class on index.html*/
+
+.section-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.section-card {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 25%;
+}
+
+.section-card img.section-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.section-card h3 {
+    margin: 10px 0;
+}
+
+.section-card p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.section-card a {
+    text-decoration: none;
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+/*icon size*/
+.icon-achievements {
+    width: 70px;
+    height: auto;
+}
+
+.icon-classes {
+    width: 70px;
+    height: auto;
+}
+
+.icon-coaches {
+    width: 70px;
+    height: auto;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #1f1f1f;
+    text-align: center;
+    color: #f5f5f5;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styling */
+form {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #444;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Role Options Styling */
+.role-options {
+    display: inline-flex; /* Ensures items are in one row */
+    align-items: center; /* Aligns radio buttons and labels vertically */
+    gap: 10px; /* Adjusts spacing between each radio button and label */
+    margin-bottom: 15px; /* Adds spacing below the group */
+}
+
+.login-container {
+    max-width: 400px; /* Set a maximum width for the container */
+    margin: 50px auto; /* Center the container horizontally and add vertical spacing */
+    padding: 20px; /* Add some inner spacing for better readability */
+    background-color: #222; /* Ensure it has a distinct background */
+    border-radius: 10px; /* Add rounded corners for aesthetics */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+    text-align: center; /* Center-align the text within the container */
+}
+
+.register-container {
+    max-width: 500px; /* Adjust the width for the register form */
+    margin: 50px auto; /* Center the container horizontally and add vertical spacing */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #222; /* Set a distinct background color */
+    border-radius: 10px; /* Add rounded corners for aesthetics */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+    text-align: center; /* Center-align the text within the container */
+}
+
+#rating-container {
+    display: none; /* Hidden by default */
+    margin: 10px 0;
+}
+
+#rating-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#rating-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Class Rates Section */
+.class-rates {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.class-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.class-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 300px;
+    color: white;
+}
+
+.class-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #00ffcc;
+}
+
+.class-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.class-card p strong {
+    font-size: 20px;
+}
+.achievements-container {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.achievements-container h2 {
+    margin-bottom: 20px;
+}
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.collage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.collage img:hover {
+    transform: scale(1.05);
+}

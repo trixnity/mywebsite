@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Chess Foundation - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="assets/logo-icon.png" alt="Logo Icon" class="nav-icon">
+                        Master Chess Foundation
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Details</a>
+                    <div class="dropdown-content">
+                        <a href="achievements.html">Achievements</a>
+                        <a href="classes.html">Classes</a>
+                        <a href="coaches.html">Coaches</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li class="search-container">
+                    <input type="text" id="search-input" placeholder="Search..." />
+                    <button id="search-button">Search</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="register-container">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <!-- Role selection -->
+                <div class="role-options">
+                    <input type="radio" id="student" name="role" value="student" checked>
+                    <label for="student">Student</label>
+                    <input type="radio" id="coach" name="role" value="coach">
+                    <label for="coach">Coach</label>
+                </div>
+                <!-- Registration inputs -->
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                       title="Phone number must be in the format 123-456-7890">
+
+                <div id="rating-container" style="display: none;">
+                    <label for="rating">Online Rating:</label>
+                    <input type="number" id="rating" name="rating" min="0" max="4000">
+                </div>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required minlength="8"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    title="Password must contain at least 8 characters, including letters and numbers">
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Master Chess Foundation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Ensure the rating field visibility updates based on the selected role
+        const roleInputs = document.querySelectorAll('input[name="role"]');
+        const ratingContainer = document.getElementById('rating-container');
+    
+        roleInputs.forEach(input => {
+            input.addEventListener('change', function () {
+                if (this.value === 'coach') {
+                    ratingContainer.style.display = 'block'; // Show rating field for coaches
+                } else {
+                    ratingContainer.style.display = 'none'; // Hide rating field for students
+                }
+            });
+        });
+    
+        // Ensure the correct role is reflected on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedRole = document.querySelector('input[name="role"]:checked').value;
+            if (selectedRole === 'coach') {
+                ratingContainer.style.display = 'block';
+            } else {
+                ratingContainer.style.display = 'none';
+            }
+        });
+    
+        // Form submission validation
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const role = document.querySelector('input[name="role"]:checked').value;
+            const fullName = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const rating = document.getElementById('rating').value;
+    
+            let successMessage = `Registration Successful! \nRole: ${role} \nFull Name: ${fullName} \nUsername: ${username} \nEmail: ${email} \nPhone: ${phone}`;
+    
+            if (role === 'coach') {
+                successMessage += `\nRating: ${rating}`;
+            }
+    
+            alert(successMessage);
+            window.location.href = 'login.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
